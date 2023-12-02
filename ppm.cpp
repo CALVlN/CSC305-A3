@@ -45,15 +45,15 @@ void save_imageP3(int Width, int Height, char* fname,unsigned char* pixels) {
 	fprintf(fp, "%d %d\n", Width, Height);
 	fprintf(fp, "%d\n", maxVal);
 	
-	int k = 0 ;
+	int k = 0;
 	for(int j = 0; j < Height; j++) {
 		
-		for( int i = 0 ; i < Width; i++)
+		for( int i = 0; i < Width; i++)
 		{
-			fprintf(fp," %d %d %d", pixels[k],pixels[k+1],pixels[k+2]) ;
-			k = k + 3 ;
+			fprintf(fp," %d %d %d", pixels[k],pixels[k+1],pixels[k+2]);
+			k = k + 3;
 		}
-		fprintf(fp,"\n") ;
+		fprintf(fp,"\n");
 	}
 	fclose(fp);
 }
@@ -74,15 +74,15 @@ int main() {
     pixels = new unsigned char [3*Width*Height];
 
 	// This loop just creates a gradient for illustration purposes only. You will not use it.
-	float scale = 128.0 / (float) Width ;
-	int k = 0 ;
+	float scale = 128.0 / (float) Width;
+	int k = 0;
 	for(int i = 0; i < Height; i++) {
 		for (int j = 0; j < Width; j++) {
-			int c = (i+j)*scale ;
+			int c = (i+j)*scale;
 			pixels[k] = c;
 			pixels[k+1] = c;
 			pixels[k+2] = c;
-			k = k + 3 ;
+			k = k + 3;
 		}
 	}
 	save_imageP3(Width, Height, fname3, pixels);
